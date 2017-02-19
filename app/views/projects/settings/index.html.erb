@@ -1,0 +1,26 @@
+<div class="main-content-title project-settings-title">
+  <h2><%= t('settings') %></h2>
+  <div class="switch">
+    <%= check_box_tag "notifications",
+                      @project.id,
+                      @notification_status,
+                      { class: 'switch-checkbox project_notification',
+                        id: "proj_#{@project.id}" } %>
+    <label class="switch-label" for=<%="proj_#{@project.id}"%>>
+      <span class="switch-inner"></span>
+      <span class="switch-btn"></span>
+    </label>
+  </div>
+  <span class="project-notification">Project notifications</span>
+</div>
+
+<div class="main-content-info test-plan-activity">
+  <%= render 'settings_tabs_panel' %>
+  <div id="tab_content" class="tab-content project-settings-tabs">
+    <div class="tab-pane tab">
+      <%= render 'projects/' + @project.settings_active_tab(@active_page)%>
+    </div>
+  </div>
+</div>
+
+

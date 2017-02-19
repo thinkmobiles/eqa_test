@@ -1,0 +1,10 @@
+<tr>
+  <td><%= item.id %></td>
+  <td><%= item.title %></td>
+  <td><%= item.selection %></td>
+  <td><%= item.pre_steps %></td>
+  <td><%= item.steps %></td>
+  <td><%= item.expected_result %></td>
+  <td><%=link_to 'Edit', edit_test_case_path({id:item.id, test_plan_id: item.test_plan_id,module_id: item.module_id, project_id: @project_id}), remote: true, id:'edit_test_case'%>/
+    <%=link_to 'Delete', destroy_case_path({id: item.id, project_id: @id_of_project, title: item.title}),method: :delete, data: { confirm: 'Delete case?'}, id:'destroy_case' %></td>
+</tr>

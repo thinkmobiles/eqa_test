@@ -1,0 +1,63 @@
+<div class="tab-pane tab testRun" id='test_run_list'>
+  <div class="tab-pane-content">
+    <%= link_to project_test_runs_path(@test_run.project_id), remote: true,
+                class: 'link-back btn-white-green' do %>
+      <i class="fa fa-angle-left" aria-hidden="true"></i>
+      <%= t('back') %>
+    <% end %>
+    <div class="testRun-nav">
+      <div class="id"><span class="value"></span></div>
+      <h3 class="title"><%= @test_run.title %></h3>
+      <ul class="list">
+        <li>
+          <%= image_tag('print-icon.svg', class: 'img-svg') %>
+          <%= link_to ('print'), "javascript:;", id: "printLink" %>
+        </li>
+        <% if authorize_to_edit_destroy?(@test_run) %>
+          <li>
+            <%= test_run_button_edit(@test_run, 'edit-icon-blue.svg') %>
+          </li>
+        <% end %>
+      </ul>
+      <% if defined? @notification_status%>
+        <div class="switch">
+          <input <%= (@notification_status ? "checked" : "") %> type="checkbox" name="switch" class="switch-checkbox test-run-notification"
+                                                 id="switch1" data-test-run-id="<%=@test_run.id%>">
+            <label class="switch-label" for="switch1">
+                <span class="switch-inner"></span>
+                <span class="switch-btn"></span>
+            </label>
+        </div>
+        <span class="switch-subscribe"><%=t('test_run_notification_label')%></span>
+      <%end%>
+    </div>
+
+    <div class="testRun-chart">
+      <canvas id="test_run_statuses_calculating_chart" width="700" height="350""></canvas>
+      <% if @test_run_results_count.nonzero? %>
+        <%= chart_bottom_info(@passed_runs_count,
+                              @untested_runs_count,
+                              @test_run_calculated_count[:untested],
+                              @test_run_results_count) %>
+      <% end %>
+    </div>
+    <div class="testRun-test">
+      <div class="testRun-test-header">
+        <%= link_to(edit_column_visibility_path(@column_visibility), remote: true) do %>
+          <div class="columns">
+            <%= image_tag('table-icon.svg', class: 'img-svg') %><%= t('Columns') %>
+          </div>
+        <% end %>
+      </div>
+        <div class="testRun-test-info">
+          <%= render partial: 'test_runs/table/table' %>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  add_profile_table_links();
+  BuildDiagram(<%= raw @gon_values.to_json %>);
+  test_run_notification_init();
+</script>

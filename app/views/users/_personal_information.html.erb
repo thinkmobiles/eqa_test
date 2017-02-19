@@ -1,0 +1,97 @@
+<div class="card card-tab-content card-personal-info tab">
+  <div class="card-header">
+    <h2 class="card-header-title"><%= t 'users.personal_information' %></h2>
+  </div>
+  <div class="columns-wrapper">
+    <div class="card-form-column">
+      <%= form_for(@user, url: user_path, method: :patch,
+                   remote: true, validate: true, authenticity_token: true) do |f| %>
+      <div id='personal_info_notice'></div>
+      <div class="input_wrapper">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, autofocus: true, validate: true %>
+      </div>
+      <div class="input_wrapper">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, validate: true %>
+      </div>
+      <div class="input_wrapper">
+        <%= f.label :email %>
+        <%= f.email_field :email, validate: { uniqueness: false } %>
+      </div>
+      <div class="input_wrapper">
+        <%= f.label :company %>
+        <%= f.text_field :company %>
+      </div>
+      <div class="input_wrapper drop-arr">
+        <%= f.label :country %>
+        <%= country_select('user', 'country', {}, id: 'countryMyProfile') %>
+      </div>
+<!--       <div class="card-form-languages">
+        <span class="languages-title"><%= t 'language' %></span>
+        <ul class="languages-btn">
+          <li>
+            <%= f.radio_button :locale, :en %>
+            <%= f.label :locale_en, t('languages.english'), class: 'btn btn-white-green language_label' %>
+          </li>
+          <li>
+            <%= f.radio_button :locale, :ru %>
+            <%= f.label :locale_ru, t('languages.russian'), class: 'btn btn-white-green language_label' %>
+          </li>
+        </ul>
+      </div> -->
+      <div class="actions">
+        <%= f.submit t('save'), class: "btn btn-green" %>
+      </div>
+      <% end %>
+    </div>
+
+    <div class="card-image-column">
+      <%= form_for(@user, url: user_path,
+                   html: { method: :patch, class: 'dropzone', id: "upload_avatar" },
+                   remote: true, authenticity_token: true) do |f| %>
+        <div class="card-image-load">
+          <% if @user.avatar.file.exists? %>
+            <div class="dz-preview dz-image-preview">
+              <div class="dz-image">
+                <%= image_tag(@user.avatar.file.url(:medium), class: 'img-svg', data: { "dz-thumbnail": true }) %>
+                <div class="dz-success-mark">
+                  <i class="fa fa-times-circle-o fa-4x" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
+          <% end %>
+            <%= image_tag('load-cloud.svg', class: 'ic-svg reload img-svg') %>
+            <span class='btn load-btn'><%= t 'click_to_load' %></span>
+            <span class="load-description"><%= t 'or_drag_your_image_here' %></span>
+        </div>
+        <div class="dz-error-message">
+          <span class="data-dz-errormessage">
+            You cant upload file more than 2 Megabytes.
+          </span>
+        </div>
+        <div class="card-image-btns">
+          <a href="javascript:;" class="btn-reload btn-white-green">
+            <%= image_tag('reload-icon.svg', class: 'ic-svg reload img-svg load-btn') %>
+            <%= t 'reload' %>
+          </a>
+          <%= link_to destroy_avatar_path(current_user.id),
+                      class: 'btn-delete btn-white-red',
+                      id: 'destroy_avatar',
+                      remote: true,
+                      method: :put,
+                      style: avatar_destroy_disable,
+                      data: { confirm: t('are_you_sure') } do %>
+            <%= image_tag('delete-icon.svg', class: 'ic-svg delete img-svg') %>
+            <%= t 'delete' %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <%= link_to t('deactivate_account'),
+                deactivate_confirmation_path,
+                remote: :true,
+                class: 'btn btn-red deactivate' %>
+  </div>
+</div>
+<script type="text/javascript">init_upload_avatar_dropzone()</script>

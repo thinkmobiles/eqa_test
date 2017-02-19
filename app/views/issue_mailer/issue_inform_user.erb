@@ -1,0 +1,10 @@
+<p><%= @message.html_safe %></p>
+<% if @changes.present? %>
+  <ul>
+    <% @changes.each do |element| %>
+      <li>
+        <%= element[:name] %> changed from <%= element[:old_value] %> to <%= element[:new_value] %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

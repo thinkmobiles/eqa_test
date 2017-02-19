@@ -1,0 +1,60 @@
+{
+  "resource": "Users",
+  "http_method": "POST",
+  "route": "/api/v1/sign_in",
+  "description": "Sign in",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "token",
+      "description": "Uniq project token"
+    },
+    {
+      "scope": "user",
+      "required": true,
+      "name": "email",
+      "description": "User email"
+    },
+    {
+      "scope": "user",
+      "required": true,
+      "name": "password",
+      "description": "User password"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/api/v1/sign_in",
+      "request_body": "{\"token\":\"6cJ/mWZ89PPUXokLIxdpZw1ziCIyNqXL7\",\"user\":{\"email\":\"colten@mckenzie.com\",\"password\":\"password_example\"}}",
+      "request_headers": {
+        "Content-Type": "application/json",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"auth_token\": \"tqsF0ZsSYBsFcAviWQWc806OVEydiIga00lwbkQIvMKYXcQgWBGQsJGytFov8Im+\",\n  \"name\": \"Mellie McLaughlin\"\n}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"0c307f8cda44e7f73058ae68f4bcb3db\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "309a1d8c-17ec-4fa9-8e7b-d7abab1e6aeb",
+        "X-Runtime": "0.040974",
+        "Content-Length": "108"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/api/v1/sign_in\" -d '{\"token\":\"6cJ/mWZ89PPUXokLIxdpZw1ziCIyNqXL7\",\"user\":{\"email\":\"colten@mckenzie.com\",\"password\":\"password_example\"}}' -X POST \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

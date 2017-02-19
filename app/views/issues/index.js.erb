@@ -1,0 +1,7 @@
+browser_path = "<%= issues_path %>"
+$('.main-content').html("<%= j render file: 'issues/index.html.erb' %>");
+window.history.pushState('dashboard', '', browser_path);
+highlight_project_left_menu_item(browser_path);
+issues_agile_board_init();
+scroll_agile_board();
+hide_modal();

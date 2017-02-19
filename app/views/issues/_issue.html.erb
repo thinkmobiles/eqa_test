@@ -1,0 +1,28 @@
+<div class="ui-state-default agile_card assigner-user-<%= issue.assigner_id %> reporter-user-<%= issue.reporter_id %>" data-issue-id="<%= issue.id %>">
+  <div class="card_header <%= issue.severity %>">
+    <p class="id">
+      #<span><%= issue.project_issue_number %></span>
+    </p>
+    <p class="state"><%= issue.spent_time_view %></p>
+  </div>
+  <div class="card_content">
+    <div class="card_message">
+      <p>
+        <%= issue.summary %>
+      </p>
+    </div>
+    <div class="card_person">
+      <% if issue.assigner_id %>
+        <div class="avatar">
+            <%= image_tag issue.assigner.avatar.file.url(:thumb), class: 'avatar' %>
+        </div>
+        <p class="name"><%= issue.assigner.name %></p>
+      <% else %>
+        <p class="name"><%= t('non_assigned') %></p>
+      <% end %>
+    </div>
+  </div>
+  <div class="card_type">
+      <p class="type <%= issue.issue_type %>"><%= beautify_type(issue.issue_type) %></p>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+$('#content').html("<%= escape_javascript(render @active_page ) %>");
+window.history.pushState('dashboard', '', "<%= user_profile_path + '/' + @active_page %>");
+if ("<%= @active_page %>" == 'notifications'){
+  notifications_init();
+  all_notifications_title();
+}
+if ("<%= @active_page %>" == 'personal_information'){
+  custom_select();
+}
+img_to_svg_convert(jQuery);

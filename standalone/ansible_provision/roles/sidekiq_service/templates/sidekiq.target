@@ -1,0 +1,10 @@
+# This file doesn't seem to do much but it's presence is required so one may startup multiple
+# sidekiq instances with a single command
+#
+#   sudo systemctl start sidekiq.target
+#
+# The command actually executed is in /lib/systemd/system/sidekiq.target.wants/sidekiq-static.service
+#
+
+[Unit]
+Description=sidekiq

@@ -1,0 +1,19 @@
+<td class="member-avatar">
+  <%= image_tag member.avatar.file.url(:medium) %>
+</td>
+<%= render partial: 'users/member_info', locals: {member: member} %>
+<td class="member-projects"><%= @data_projects[member.id].try(:size) || 0 %></td>
+<td class="member-joined"><%= member_organization_role.created_at %></td>
+<td member='<%=member.id%>' organization='<%= @organization.id %>'>
+  <div class="input_wrapper drop-arr <%= org_role_selector_disable(@organization.id,
+                                                                   member) %>">
+    <%= @organization.member_organization_role_select(member_organization_role,
+                                                      member) %>
+  </div>
+</td>
+<td>
+  <%= @organization.delete_organization_member_role(member) %>
+</td>
+<td>
+  <span class="chevron-down"></span>
+</td>

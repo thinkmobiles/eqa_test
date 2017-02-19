@@ -1,0 +1,41 @@
+<ol class="instruction">
+  <li><p class="main-step">Open your project (for example, in Android Studio);</p></li>
+  <li><p class="main-step">Go to EasyQA website <span>></span> open your project <span>></span> SDK Intergations menu
+  item <span>></span> Download library for Android projects:</p>
+  <div class="sdk-platforms">
+    <%= link_to download_android_path, method: :post, class: 'btn btn-green sdk-platform' do %>
+      <%= image_tag('android-icon.png', class: 'img-png') %>
+      <span><%= t 'android_sdk' %></span>
+    <% end %>
+  </div>
+</li>
+<li>
+  <p class="main-step">Add this library to your project:</p>
+  <p class="sub-step"><span>– </span>File <span>></span> New <span>></span> New Module <span>></span> Import .JAR/.AAR Package <span>></span></p>
+  <%= image_tag('android-instruction-1.png', class: 'instruction-img') %>
+  <p class="sub-step"><span>– </span>Select downloaded library <span>></span> Finish</p>
+  <p class="sub-step"><span>– </span>Open Project Structure <span>></span> Select module of your application <span>></span> Click “Dependencies” tab <span>></span> Click “+” <span>></span> Module Dependency <span>></span> Select module “easyqa” <span>></span> Click OK</p>
+  <%= image_tag('android-instruction-2.png', class: 'instruction-img') %>
+</li>
+<li>
+  <p>Go to EasyQA website <span>></span> open you project <span>></span> SDK Intergations menu item <span>></span> copy token</p>
+  <h2 class="card-sdk-integrations-title">SDK Integrations</h2>
+  <span class="token-title">Token</span>
+  <div class="token-block">
+    <div class="token">
+      <span><%= @project.token %></span>
+      <div class="copy-token">
+        <a class="btn-white-green"><%= t 'copy_token' %></a>
+      </div>
+    </div>
+  </div>
+</li>
+<li>
+  <p>Open the application class of you project and add a code in the onCreate method:</p>
+  <p>EasyQA.install(this, "project token");</p>
+  <%= image_tag('android-instruction-3.png', class: 'instruction-img') %>
+</li>
+<li>
+  <p>Generate test build and upload it on <%= link_to(project_path(@project) + '/test_objects'){'Test Objects page'} %> on EasyQA website <span>></span> your build is ready to track crashes.</p>
+</li>
+</ol>

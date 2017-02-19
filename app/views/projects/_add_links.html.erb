@@ -1,0 +1,28 @@
+<div class="btn-group">
+  <%= link_to t('add_case'),
+              new_test_plan_test_case_path(test_plan_id: (@current_plan.try(:id) || :undefined)),
+              class: "btn btn-green #{non_active_button_class(@current_plan)}", remote: true %>
+  <%= link_to t('add_module'),
+              new_test_module_path(project_id: (@current_plan.try(:project_id) || :undefined),
+                                   test_plan_id: (@current_plan.try(:id) || :undefined)),
+              class: "btn btn-green #{non_active_button_class(@current_plan)}", remote: true %>
+</div>
+<div class="icon-block">
+  <%= link_to export_cases_path(@current_plan.try(:project_id) || :undefined, { format: :csv }), class: "icon-btn export #{non_active_button_class(@current_plan)}" do %>
+    <%= image_tag 'export.svg', class: 'img-svg' %>
+    <span class="hover-block export-hover"><%= t 'export' %></span>
+  <% end %>
+  <%= link_to upload_csv_path(@current_plan.try(:project_id) || :undefined, object: :test_case), remote: true, class: "icon-btn import #{non_active_button_class(@current_plan)}" do %>
+    <%= image_tag 'import.svg', class: 'img-svg' %>
+    <span class="hover-block import-hover"><%= t 'import' %></span>
+  <% end %>
+
+  <%= link_to edit_column_visibility_path(@current_plan.try(:column_visibility, current_user) || :undefined),
+                                          class: "icon-btn columns \
+                                          #{non_active_button_class(@current_plan)}",
+                                          remote: true do %>
+    <%= image_tag 'table-icon.svg', class: 'img-svg' %>
+     <span class="hover-block columns-hover"><%= t 'manage_columns' %></span>
+
+  <% end %>
+</div>

@@ -1,0 +1,9 @@
+<% unless @current_plan.nil? %>
+  <% @current_plan.test_modules.roots.each do |test_module| %>
+
+          <%= render partial: 'test_modules/test_module',
+                              locals: { test_module: test_module,
+                                        test_plan: test_module.test_plan  } %>
+
+  <% end %>
+<% end %>

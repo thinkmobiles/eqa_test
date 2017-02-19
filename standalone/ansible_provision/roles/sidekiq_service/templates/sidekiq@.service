@@ -1,0 +1,62 @@
+#
+# systemd unit file for CentOS 7, Ubuntu 15.04
+#
+# Customize this file based on your bundler location, app directory, etc.
+# Put this in /usr/lib/systemd/system (CentOS) or /lib/systemd/system (Ubuntu).
+# Run:
+#   - systemctl enable sidekiq
+#   - systemctl {start,stop,restart} sidekiq
+#
+# This file allows for multiple Sidekiq process.
+# To run multiple processes, first enable each (one time)
+# with:
+#   - systemctl enable sidekiq@n.service
+#
+#   where n is 1 ... number of processes you wish enabled.
+#
+# Then control each process
+# with:
+#   - systemctl {start,stop,restart} sidekiq@n.service
+#
+# See sidekiq.target to start and stop all processes at once.
+#
+[Unit]
+Description=SideKiq Process %I
+PartOf=sidekiq.service
+ReloadPropagatedFrom=sidekiq.service
+# start us only once the network and logging subsystems are available,
+# consider adding redis-server.service if Redis is local and systemd-managed.
+After=syslog.target network.target
+
+# See these pages for lots of options:
+# http://0pointer.de/public/systemd-man/systemd.service.html
+# http://0pointer.de/public/systemd-man/systemd.exec.html
+
+[Service]
+Type=simple
+WorkingDirectory=/mnt/esebco-production/current
+# If you use rbenv:
+ExecStart=/bin/bash -lc 'bundle exec sidekiq -e production'
+# If you use the system's ruby:
+# Environment=PATH=/usr/local/rubies/2.2.5/bin:$PATH
+# ExecStart=/usr/local/rubies/2.2.5/bin/bundle exec sidekiq -C /mnt/esebco-production/current/config/sidekiq.yml -i %I -e production
+# User=ubuntu
+# Group=ubuntu
+# UMask=0002
+# KillSignal=SIGTERM
+
+
+# if we crash, restart
+RestartSec=1
+Restart=on-failure
+
+# output goes to /var/log/syslog
+StandardOutput=syslog
+StandardError=syslog
+
+# This will default to "bundler" if we don't specify it
+SyslogIdentifier=sidekiq
+
+# The pixie dust that allows multiple processes to be starte
+[Install]
+WantedBy=sidekiq.target

@@ -1,0 +1,29 @@
+- name: Upload shared/config/database.yml
+  template:
+    src: templates/database.yml
+    dest: "{{ deploy_folder }}{{ app_name }}/shared/config/database.yml"
+
+- name: Upload shared/config/secrets.yml
+  template:
+    src: templates/secrets.yml
+    dest: "{{ deploy_folder }}{{ app_name }}/shared/config/secrets.yml"
+
+- name: Upload shared/config/sidekiq.yml
+  template:
+    src: templates/sidekiq.yml
+    dest: "{{ deploy_folder }}{{ app_name }}/shared/config/sidekiq.yml"
+
+- name: Upload shared/.env
+  template:
+    src: templates/.env
+    dest: "{{ deploy_folder }}{{ app_name }}/shared/.env"
+
+- name: Replace line in shared/.env
+  become_user: root
+  become: yes
+  lineinfile:
+    dest: "{{ deploy_folder }}{{ app_name }}/shared/.env"
+    state: present
+    regexp: 'PROTOCOL=\'http''
+    line: 'PROTOCOL="https"'
+  when: ssl_sertificate_present == 'true'

@@ -1,0 +1,25 @@
+<div class="tab-pane tab testPlans" id="test_plans">
+  <div class="tab-pane-content">
+    <div class="tab-pane-content-header">
+      <%= render 'projects/tab_pane_content_header' %>
+    </div>
+    <div class="tab-pane-content-info">
+      <div class="plans">
+        <a href="javascript:;" class="plans-toggle">
+          <span class="fa fa-caret-left" aria-hidden="true"></span>
+        </a>
+        <div class="plans-info">
+          <%= render 'test_plans/test_plan_list' %>
+        </div>      <!-- plans-->
+      </div>
+      <div class="cases">
+        <div class="cases-info">
+          <%= render partial: 'test_plans/test_plan_item' %>
+        </div>  <!-- cases-info-->
+      </div>  <!-- cases mCustomScrollbar-->
+      <div class="contains contains-info">
+        <%= render partial: 'test_plans/jstree' %>
+      </div>
+    </div>
+  </div><!-- tab-pane-content-->
+</div>

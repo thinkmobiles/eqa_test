@@ -1,0 +1,13 @@
+<tr>
+  <th class="drag"></th>
+  <th class="checkbox">
+    <input type="checkbox" class="checkbox" id="checkbox-test_module<%= test_module.id %>"/>
+    <label for="checkbox-test_module<%= test_module.id %>" class="checkbox-label"></label>
+  </th>
+  <th class="id"><%= t 'id' %></th> <!--main-id-->
+  <th class="test-title"><%= t 'title' %></th>
+  <% names_columns.each do |name| %>
+    <th class="<%= generate_class_from_name(name) %>"><%= t(name) %></th>
+  <% end %>
+  <th class='select'></th>
+</tr>

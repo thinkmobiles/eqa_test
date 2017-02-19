@@ -1,0 +1,29 @@
+---
+
+- name: Create /lib/systemd/system/sidekiq-static.service
+  become_user: root
+  become: yes
+  template:
+    src: templates/sidekiq-static.service
+    dest: /lib/systemd/system/sidekiq-static.service
+
+- name: Create /lib/systemd/system/sidekiq.target
+  become_user: root
+  become: yes
+  template:
+    src: templates/sidekiq.target
+    dest: /lib/systemd/system/sidekiq.target
+
+- name: Create /lib/systemd/system/sidekiq.target.wants/sidekiq-static.service
+  become_user: root
+  become: yes
+  template:
+    src: templates/sidekiq-static.service
+    dest: /lib/systemd/system/sidekiq.target.wants/sidekiq-static.service
+
+- name: Create /lib/systemd/system/sidekiq@.service
+  become_user: root
+  become: yes
+  template:
+    src: templates/sidekiq@.service
+    dest: /lib/systemd/system/sidekiq@.service

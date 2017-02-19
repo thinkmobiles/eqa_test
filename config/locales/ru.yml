@@ -1,0 +1,703 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+ru:
+  enumerize:
+    role:
+      role:
+        owner: Владелец
+        pm: Менеджер Проекта
+        developer: Разработчик
+        tester: Тестировщик
+        viewer: Зритель
+    user:
+      country:
+        usa: США
+        uk: Великобритания
+        ua: Украина
+    issue:
+      priority:
+        do_asap: Немедленно
+        must_do: Должен сделать
+        do_if_time: Делать если есть время
+        do_later: Сделать позже
+  users:
+    personal_information: Личная Информация
+    change_password: Изменить Пароль
+    current_password: Текущий пароль
+    new_password: Новый пароль
+    confirm_new_password: Подтвердите новый пароль
+    change_my_password: Изменить пароль
+    password_updated: 'Пароль обновлен'
+    incorrect_password: Некорректный текущий пароль
+    my_organizations: Мои Организации
+    my_projects: Мои Проекты
+    notifications: Уведомления
+    date_registration: 'Дата регистрации:'
+    last_sign_in: 'Последний вход:'
+    profile: Мой Профиль
+  projects: Проекты
+  add_project: Добавить проект
+  create_project: Создать проект
+  your_role: Ваша роль
+
+  company: Компания
+  export: Экспорт
+  import: Импорт
+  organization:
+    one: ‘Организация'
+    edit_title_label: Имя организации*
+    add_members: Добавить Участников Организации
+    role: Роль в организации
+    members: Участники Организации
+    no_members: Организация не имеет участников
+    confirm_deletion: Вы уверены, что хотите удалить эту организацию?
+  organizations: Мои организации
+  choose_organization: Выберите организацию
+  joined_at: Присоединился
+  project_single: Проект
+  project_overview: Обзор Проекта
+  test_objects: Тестовые Объекты
+  test_object: Тестовый Объект
+  add_test_object: Добавить тестовый объект
+  sdk_integrations: SDK Интеграции
+  integrations: Интеграции
+  test_plan_activity: Тестовая Активность
+  test_activities: Тестовая Активность
+  testing_activities: Тестовая активность
+  test_plan: Тест план
+  test_plans: Тест планы
+  test_run: Тестовый прогон
+  edit_test_run: Редактировать тестовый прогон
+  delete_test_run_confirmation: Вы действительно хотите удалить тестовый прогон?
+  test_run_result_status:
+    untested: Непроверенный
+    passed: Пройденный
+    failed: Непройденный
+    blocked: Блокированный
+  test_run_chart_info:
+    passed: Пройденный
+    untested: Непроверенный
+    tests: тесты
+  test_run_step_button:
+    prev: Пред
+    next: След
+    finish: Завершить тестовый прогон
+  test_reports: Тестовые отчеты
+  settings: Настройки
+  project_info: Информация о проекте
+  team: Команда
+  delete_project: Удалить проект
+  platform: Платформа
+  platforms: Платформы
+  last_updated: Последнее обновление
+  latest_build: Последний тестовый объект
+  upload_first_object: Добавить первый объект
+  upload_object: Добавить объект
+  choose_test_object: Выбрать объект
+  create_test_object_error:  Пожалуйста, добавьте .apk или файл .ipa или введите ссылку
+  build_file_ipa_or_apk: Файл сборки (IPA или APK)
+  you_can_also_use_our: Вы можете также использовать наши
+  to_upload_builds_from_your_building: для загрузки сборок прямо из GitHub или GitLab хранилищ
+  or_add_link: или Введите ссылку
+  copy_link: Копировать ссылку
+  save_object: Сохранить объект
+  add_test_object: Добавить тестовый объект
+  access_level: Уровень доступа
+  project_summary: Краткое описание проекта
+  your_projects: Твои Проекты
+  project_role: Роль в проекте
+  distribution_groups: Группы рассылки
+  add_members: Добавить участников
+  member_name: Имя участника
+  create_new_organization: Создать новую организацию
+  add_organization: Добавить организацию
+  add_new_organization: Добавить новую организацию
+  create_organization: Создать организацию
+  change_organization: Изменить профиль организации
+  total: Всего
+  devices: Приборы
+  delete_organization: Удалить организацию
+  deleting_organization: При удалении организации будут удалены все связанные с ним проекты и тестовые объекты.
+  deleting_project: При удалении проекта будут удалены все связанные с ним тестовые объекты, проблемы и сбои.
+  permanent_action: Вы не сможете отменить это действие.
+  no_member: Учетные записи участников не будут удалены.
+  delete_project: Удалить проект
+  payment_history: История платежей
+  plans_and_billings: Планы и Оплаты
+  organization_members: Участники организации
+  organization_profile: Профиль организации
+  user_created: Пользователь создан
+  create_user: Сщздать пользователя
+  update_success: Обновление прошло успешно
+  update_error:  Изменения не были сохранены, проверьте правильность введенных данных
+  organization_project: Организация / Проект
+  you_are: Вы
+  subscribe: Подписаться
+  un_subscribe: Отписаться
+  employees: Участники
+  members: Участники
+  member:
+    one: 1 участник
+    few: "%{count} участника"
+    other: "%{count} участников"
+  logout: Выход
+  cancel: Отмена
+  sign_in: Вход
+  sign_in_via: Вход через
+  sign_up: Регистрация
+  sign_up_via_email: Регистрация по электронной почте
+  sign_in_via_email: Вход через электронную почту
+  save: Сохранить
+  save_changes: Сохранить изменения
+  for: для
+  about: о
+  hours: часов
+  ago: назад
+  issues: Баг Трекер
+  issues_summary: Описание
+  sessions: Сессии
+  instals: Установки
+  crashes: Сбои
+  builds: Тестовые объекты
+  change: Изменить
+  test_case: Тестовый случай
+  test_cases: Тестовые случаи
+  test_case_steps: Шаги
+  test_case_expected_result: Ожидаемый результат
+  test_case_delete_confirmation: Вы уверены, что хотите удалить этот тестовый случай ?
+  number_of_written_cases: Количество написанных случаев
+  number_of_cases_passed: Количество пройденных случаев
+  upload_first_build: Добавить первый тестовый объект
+  invite:
+    note: Заметка
+    existing_users: Существующие пользователи получают доступ к этой организации.
+    an_invitation: Приглашение будет отправлено новым пользователям.
+    emails: Введите адреса электронных почт вручную
+    use_separator: Используйте ,;
+    or_new_line: или с нового рядка
+    to_separate: чтобы отделить адреса электронных почт
+    add_members: Добавить участников
+    max_count: '* Макс. 2000 символов'
+    default_text: "Я хотел бы добавить вас к моей организации в EasyQA."
+  upload_build: Добавить новый тестовый объект
+  create_test_plan: Создать тест план
+  create_test_run: Создать тестовый прогон
+  latest_run: LПоследний тестовый прогон
+  send_by_email: Отправить по электронной почте
+  maillist_header: Выберите участников проекта
+  send: Отправить
+  install_link: Ваша ссылка для установки приложения на мобильный телефон
+  created_at: Создан в
+  created_by: Создан
+  current plan: Текущий план
+  not_implemented: Не реализован
+  validation_errors:
+    invite_user_undefined_email: одна из введенных электронный почт является недействительной
+  project:
+    title: Имя проекта
+    last_updated: Последние обновления в
+    test_objects: Тестовые Объекты
+    latest_test_object: Последний тестовый объект
+    last_object: "Последний тестовый объект:"
+    edit_project: Изменить проект
+    add_new: Добавить новый проект
+    confirm_deletion: Вы уверены, что хотите удалить этот проект?
+    activity: Действия за последние 30 дней
+    invite: Пригласите участников к этому проекту
+    manage_members: Управление участниками
+
+  no_permission_warning:  У вас нет прав для просмотра этой страницы или выполнения этого действия.
+  test_run_mail:
+    new: "У вас есть новый тестовый прогон \"%{run_title}\"."
+    update: "Ваш тестовый прогон \"%{run_title}\" был обновлен"
+    destroy: "Ваш тестовый прогон \"%{run_title}\" был удален."
+  test_run_notification_label: Уведомления о тестовых прогонах
+
+  issue_word: Карточка
+  issue:
+    new: Добавить новую карточку
+    edit: Редактировать карточку
+    create_issue: Создать карточку
+    deleted: Карточка была успешно удалена!
+    delete_error: Не удалось удалить карточку!
+    your_issue: Ваша карточка
+    email_new: "У вас есть новая карточка %{link}: %{issue_summary}."
+    email_update: "Ваша карточка \"%{issue_summary}\"(%{link}) была обновлена"
+    email_destroy: "Ваша карточка \"%{issue_summary}\" была удалена"
+    inform: сообщить.
+    confirm_deletion: Вы уверены, что хотите удалить эту карточку?
+    no_type: Без типа
+    documentation: Документация
+    task: Задания
+    feature: Функция
+    usability_problem: Удобство использования
+    bug: Баг
+    crash: Креш
+  all_issues: Все карточки
+  open_issues: Открытые карточки
+  closed_issues: Закрытые карточки
+  assigned_issues: Назначенные мне
+  reported_issues: Созданные мною
+  non_assigned: Не назначена
+  assigned_to: Назначена
+  attachments: Вложения
+  turn_on_notification: Включить уведомления
+  enable_all: Включить все
+  disable_all: Выключить все
+  notifications_enabled: Уведомления по электронной почте включены
+  you_will_receive: Вы будете получать уведомления по электронной почте о важных системных событиях, таких как новый тестовый объект доступен, ошибки оплаты и т.д. ...
+  disable_email: Отключить уведомления по электронной почте
+  report:
+    bug: Создать баг
+    to_project: Сообщить об ошибке в проекте EasyQA
+    send: Отправить отчет
+    found: Нашли проблему в EasyQA?
+
+  board_settings: Настройки доски
+  show: Показать
+
+  error_privileges_message: У вас нет прав для этой операции. Только владелец или администратор может добавить проекты.
+  error_select_organization_message: Вы не выбрали организацию
+  create_status: Создать статус
+  delete: Удалить
+  delete?: Удалить?
+  edit: Изменить
+  update: Обновить
+  reload: Перезагрузить
+  resend_confirmation_instructions: Отправить инструкции подтверждения еще раз
+  confirm_my_account: Подтвердить свою учетную запись
+  unlock_my_account: Разблокировать свою учетную запись
+  send_reset_password_instructions: Отправить мне инструкции по сбросу пароля
+  cancel_my_account: Удалить мою учетную запись
+  are_you_sure: Вы уверены?
+  back: Назад
+  via: через
+  about_us: О нас
+  features: Функции
+  prices: Цены
+  blog: Блог
+  contact_us: Свяжитесь с нами
+  country: Страна
+  language: Язык
+  languages:
+    english: Английский
+    russian: Русский
+    german: Немецкий
+  click_to_load: Нажмите здесь
+  or_drag_your_image_here: или перетащите файл сюда
+  term_and_conditions: Условия и положения
+  added: Добавлено
+  package_name: Имя пакета
+  sdk_version: SDK версия
+  min_os_version: Мин ОС версия
+  size: Размер
+  object_title: Имя объекта
+  link_to_object: Ссылка на объект
+  n_a: пусто
+  search_issue: Найти карточку
+  devise:
+    confirmations:
+      new:
+        resend_confirmation_instructions: "Отправить инструкции подтверждения еще раз"
+    failure:
+      already_authenticated: "Вы уже вошли в систему."
+      inactive: "Ваша учетная запись еще не активирована."
+      invalid: "Неправильный %{authentication_keys} или пароль."
+      locked: Ваша учетная запись заблокирована.
+      last_attempt: "У вас есть еще одна попытка, прежде чем ваша учетная запись будет заблокирована."
+      not_found_in_database: "Неправильный %{authentication_keys} или пароль."
+      timeout: "Ваша сессия истекла. Пожалуйста, войдите в систему еще раз, чтобы продолжить."
+      unauthenticated: "Вы должны войти в систему или зарегистрироваться перед тем как продолжить."
+      unconfirmed: "Вы должны подтвердить свой адрес электронной почты, прежде чем продолжить."
+    mailer:
+      confirmation_instructions:
+        action: “Подвердить мою учетную запись”
+        greeting: “Добро пожаловать %{recipient}!"
+        instruction: "Вы можете подтвердить свой адрес электронной почты по ссылке ниже:"
+      reset_password_instructions:
+        action: "Изменить мой пароль"
+        greeting: "Добро пожаловать %{recipient}!"
+        instruction: "Кто-то запросил ссылку, чтобы изменить свой пароль, и вы можете сделать это через ссылку ниже."
+        instruction_2: "Если вы не запрашивали этого, игнорируйте это сообщение."
+        instruction_3: "Ваш пароль не будет изменен до тех пор, пока вы не перейдете по указанной выше ссылке и не создадите новый."
+      unlock_instructions:
+        action: “Разблокировать мою учетную запись”
+        greeting: "Добро пожаловать %{recipient}!"
+        instruction: "Нажмите на ссылку ниже, чтобы разблокировать свой аккаунт:"
+        message: "Ваш аккаунт был заблокирован из-за чрезмерного количества неудачных попыток входа в систему."
+    passwords:
+      new:
+        forgot_your_password: "Забыли пароль?"
+        send_me_reset_password_instructions: "SОтправить мне инструкции по сбросу пароля"
+      edit:
+        change_your_password: "Измените свой пароль"
+        new_password: “Новый пароль“
+        confirm_new_password: "Подтвердите новый пароль"
+        change_my_password: “Изменить мой пароль"
+    registrations:
+      edit:
+        are_you_sure: “Вы уверены?”
+        cancel_my_account: “Удалить мою учетную запись”
+        leave_blank_if_you_don_t_want_to_change_it: "оставьте пустым, если вы не хотите изменить его"
+        currently_waiting_confirmation_for_email: "Ожидаем подтверждения для: %{email}"
+        title: “Изменить %{resource}"
+        we_need_your_current_password_to_confirm_your_changes: “Нам нужен текущий пароль для подтверждения изменений"
+        update: “Обновить”
+        unhappy: "Недовольны"
+      new:
+        sign_up: “Зарегистрироваться”
+    sessions:
+      new:
+        sign_in: “Войти в систему"
+    shared:
+      links:
+        back: “Назад”
+        didn_t_receive_confirmation_instructions: "Не получили инструкции для подтверждения?"
+        didn_t_receive_unlock_instructions: "Не получили инструкции, чтобы разблокировать?"
+        forgot_your_password: "Забыли пароль?"
+        sign_in: "Sign in"
+        sign_in_with_provider: “Войти через %{provider}"
+        sign_up: "Зарегистрироваться"
+    unlocks:
+      new:
+        resend_unlock_instructions: "Отправить инструкции для разблокировки еще раз"
+  activerecord:
+    models:
+      user: “Пользователь”
+      project: “Проект”
+      issue: “Карточка”
+    attributes:
+      user:
+        email: Эл. адрес
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        current_password: Текущий пароль
+        remember_me: Запомнить меня
+        company: Компания
+        first_name: Имя
+        last_name: Фамилия
+        title: Название
+        country: Страна
+      project:
+        title: Название
+        organization: Организация
+      organization:
+        title: Название
+        description: Описание
+      issue:
+        summary: Название
+        description: Описание
+        project: Проект
+        issue_type: Тип карточки
+        severity: Серьезность
+        priority: Приоритет
+        status: Статус
+        reporter: Создатель
+        assigner: Исполнитель
+        document_updated_at: Документ обновлен в
+        project_issue_number: Номер карточки проекта
+        build: Объект
+  reports:
+    issues:
+      by_status: ‘Карточки по статусу’
+      by_priority: ‘Карточки по приоритетности’
+      by_severity: 'Карточки по серьезности'
+      by_type: ‘Карточки по типу’
+
+  submited: Созданные
+  to_be_discussed: Обсуждения
+  reopened: Переоткрытие
+  in_progress: Выполняются
+  code_review: Обзор кода
+  qa_review: QA Обзор
+  closed: Закрытые
+  create_status_uniq_error: Ваш проект уже имеет статус этого имени
+  add_column: Добавить колонку
+  save_changes: Сохранить изменения
+  board_columns: Колонки доски
+  status_sub_title: Выбранные поле используется, по крайней мере, одним проектом, который не связан с этой доской. Переименование или добавление новых столбцов будет влиять на все проекты, использующие выбранный столбец.
+  status_uniq_name_error: Должен быть уникальным в проекте
+  modules: Модули
+  cases: Случаи
+  latest_update: Последнее обновление
+  phone_type: Тип телефона
+  log: Лог
+  updates: Обновления
+  convert_to_issue: Преобразовать в карточку
+  success: Успешно
+  bad_token: Неверный токен
+  all_rights: by THINKMOBILES. All rights reserved.
+  privacy_policy: Privacy Policy
+  term_and_cond: Term and Cond
+  pricing: Цены
+  detected: Обнаруженный
+  crash_summary: Краткое описание сбоя
+  device_manufacturer: Производитель устройства
+  device_model: Модель устройства
+  device: Устройство
+  device_serial: Серия устройства
+  token: Токен
+  copy_token: Скопировать токен
+  android_sdk: Android SDK
+  ios_sdk: iOS SDK
+  integration_instruction: Инструкции по интеграции
+  refresh_token: Обновить токен
+  in: в
+  add: добавить
+  update_lower_case: обновить
+  project_history: История проекта
+  project_graphics: Графики проектов
+  ago: назад
+  delete_lower_case: удалить
+  add_case: Добавить тестовый случай
+  edit_case: Изменить тестовый случай
+  show_case: Просмотр тестового случая
+  title: Название
+  section: Модуль
+  type: Тип
+  presteps_example_with_ref: Предварительные шаги этого теста. Взять с другого тестового случая с [C#] (e.g. [C17]).
+  presteps_example: Предварительные шаги этого теста.
+  steps_example: Необходимые шаги для выполнения тестового случая.
+  expected_result_example: Ожидаемый результат после выполнения тестового случая.
+  presteps: Предварительные шаги
+  save_module: Сохранить модуль
+  add_module: Добавить модуль
+  edit_module: Изменить модуль
+  add_submodule: Добавить подмодуль
+  new_test_plan: Новий тест план
+  save_test_plan: Сохранить тест план
+  restore: Восстановить
+  enter_email_to_restore_password: Введите адрес электронной почты для восстановления пароля
+  how_it_works: Как это работает
+  android_instructions: Android Инструкции
+  ios_instructions: iOS Инструкции
+  link_to_test_object: Ссилка на тестовый объект
+  module: Модуль
+  test_module: Тестовый модуль
+  choose_test_module: Выбрать тестовый модуль
+  created_on: Создан в
+  updated_by: Обновлен
+  updated_on: Обновлен в
+  contains: Содержит
+  modules_and: модули и
+  cases_down_case: тесты
+  columns: Колонки
+  id: ID
+  crashes_report_label: Диаграмма сбоев по версиям
+  crashes_count: Количество сбоев
+  member_names: Имена участников
+  project_name: Название проекта
+  generate_test_cases_report: Сгенерировать отчет о тестовых случаях
+  generate_test_run_cases_report: Сгенерировать отчет о пройденных тестах
+  crashes_by_version: Сбои по версии
+  preview_report: Просмотреть отчет
+  download_report: Скачать отчет
+  enter_new_password: Ввести новый пароль
+  next: След
+  to: к
+  field: поле
+  choose_test_plan: Выберите тест план
+  leave_field_blank: Оставьте это поле пустым
+  import_progress: Ход процесса импорта
+  import_preview: Предварительный просмотр импорта
+  imported_from: Импортировано из
+  map_fields: Присвоить поля
+  select_the_csv_fields_to_import: Выберите поля из CSV-файла для импорта, а затем выберите соответствующие поля, где будут преобразованы данные
+  csv_field: CSV поле
+  issue_field: Поле карточки
+  dont_map_this_field: Не назначайте это поле
+  begin_import: Начать импорт
+  imported_as_an: Импортируется как
+  upload_csv_file: Загрузить CSV файл
+  Click to upload: Нажмите, чтобы загрузить
+  deactivate_account: Деактивировать учетную запись
+  restore_your_account: Восстановить учетную запись
+  restore_account: Восстановить учетную запись
+  restore_text_p1: Вы можете восстановить свою учетную запись со всей информацией, которая была в ней.
+  restore_text_p2: Если так, то нажмите кнопку восстановить учетную запись, если нет, то зарегистрируйте новую учетную запись
+  account_locked_p1: Учетная запись заблокирована
+  account_locked_p2: Вы не можете войти.
+  account_locked_p3: Пожалуйста свяжитесь з командой поддержки EasyQA
+  register_new_account: Зарегистрируйте новую учетную запись
+  send_link: Отправить ссылку
+  choose_country: Выберите вашу страну
+  deactivate_text_title: Вы уверены, что хотите деактивировать учетную запись?
+  deactivate_text_1: У вас есть возможность восстановить свою учетную запись в течение одного года.
+  deactivate_text_2: Все ваши данные будут доступны.
+  deactivate_text_3: Через год вся ваша информация будет удалена.
+  yes_word: “Да”
+  no_word: “Нет”
+  close: Закрыть
+  execute_test_case: Выполнить тест
+  choose_plugin: Пожалуйста, выберите плагин интеграции
+  new_integration: Новая интеграция
+  plugins: Плагины
+  add_new_plugin: Добавить новый плагин
+  information: Информация
+  plugin_for_integration_with: Плагин для интеграции с
+  active_admin:
+    filters:
+      predicates:
+        not_eq: “Не равно”
+  plugin_integrations: Интеграция плагинов
+  project_id: Project ID
+  connect: Подключить
+  agile_board_name: Название канбан доски
+  sprint_name: Названия спринта
+  base_url: Базовый URL
+  board_name: Название доски
+  tracker_name: Название трекера
+  project_url: URL проекта
+  project_key: Ключ проекта
+  api_key: API KEY
+  api_token: API токен
+  git_lab_instructions:
+    chapter1: "Перейти к: GitLab - Profile Settings - Access Token"
+    chapter2: и нажать Generate
+    chapter3: '*Если вы не являетесь владельцем или администратором проекта,'
+    chapter4: вы не можете удалять карточки
+  git_hub_instructions:
+    chapter1: 'Перейти к: GitHub - Settings - Personal Access Tokens'
+    chapter2: и нажать Generate new token.
+    chapter3: В новом окне выберите repo.
+  redmine_instructions:
+    chapter1: 'Перейти к: Redmine - Administration - Settings - Authentication'
+    chapter2: отметьте пункт "Enable REST web service" и нажмите "Save"
+    chapter3: 'Перейти к: Redmine - My account'
+    chapter4: Вы можете найти свой ключ API на правой панели
+  pivotal_instructions:
+    chapter1: 'Перейти к: PivotalTracker - Profile'
+    chapter2: Вы можете найти свой ключ API в нижней части страницы
+  project_not_found: Проект не найден
+  tracker_not_found: Трекер не найден
+  synchronize: Синхронизировать
+  all_issues: Все карточки
+  pushed_issues: Синхронизированные карточки
+  automatic_synchronization: Автоматическая синхронизация
+  plugin_synchronization: Синхронизация плагина
+  plugin: Плагин
+  member_name: Имя участника
+  check_all: Отметить все
+  bad_connection: Плохое соединение
+  connection_error_message: Не удалось установить соединение. Пожалуйста, проверьте ваши данные или повторите попытку позже
+  received: Получено
+  synchronization_progress: Выполнение синхронизации
+  stop_synchronization: Остановить синхронизацию
+  ok: Да
+  complete: Завершено
+  create_issues_on_plugin: Создание карточки на плагине…
+  create_issues_on_easyqa: Создание карточки на EasyQA...
+  update_issues_on_easyqa: Обновление карточки на EasyQA...
+  failed: Не выполнено
+  is_synchronized: синхронизирован!
+  is_failed: не выполнено
+  integration: Интеграция
+  breaked_synchronize: Синхронизация была нарушена!
+  starting: Запуск…
+  breaked: Прервано
+  new_test_runs: Новые тестовые прогоны
+  active_test_runs: Активные тестовые прогоны
+  finished_test_runs: Завершенные тестовые прогоны
+  columns_visibility: Отображение колонок
+  add_new_column: Добавить новую колонку
+  drag_selected_column_here_to_remove: перетащить выбранную колонку сюда, чтобы удалить
+  time_spent: Потраченное время
+  comments: Комментарии
+  summary: Краткое описание
+  started: Создано в
+  description: Описание
+  show_all: Показать все
+  date_word: Дата
+  time_word: Время
+  user: Пользователь
+  comment: Коментарий
+  add_time: Добавить время
+  get_test_object: Получить тестовый объект
+  report_title: Название отчета
+  users_list: Список участников
+  download: Скачать
+  print: Распечатать
+  issue_id: ID Карточки
+  issue_summary: Краткое описание
+  add_comment: Добавить коментарий
+  user_spent_time: Потраченное время пользователя
+  project_spent_time: Потраченное время на проект
+  build_version: Версия объекта
+  uniq_build_in_project_error: Тестовый объект с такими параметрами уже существует. Пожалуйста, измените название версии.
+  get_build: Получить объект
+  branch: Ветка
+  report_builder: Генератор отчетов
+  choose_type_of_report: Выберите тип отчета
+  choose_user: Выберите пользователя
+  choose_test_run: Выберите тестовый прогон
+  generate: Сгенерировать
+  issues_by_status: Карточки по статусу
+  issues_by_priority: Карточки по приоритетности
+  issues_by_severity: Карточки по серьезности
+  issues_by_type: Карточки по типу
+  cases_by_type: Тести по типу
+  cases_by_module: Тесты по модулю
+  crashes_by_build: Сбои по объекту
+  cases_by_status: Тесты по статусу
+  finished_cases_by_module: Пройденные тесты по модулю
+  project_users_spent_time: Потраченное время пользователей на проекте
+  column_settings: Настройки колонок
+  file: Файл
+  status: Статус
+  testong_activities: Тестовая Деятельность
+  no_test_object: нет тест-объекта
+  crash_on: Сбой на
+  devise_word: устройство
+  device_model: модель устройства
+  device_brand: бренд устройства
+  device_manufacturer: производитель устройства
+  device_serial: серийный номер устройства
+  can_not_be_zero: Не может быть равен нулю
+  no_projects_found: Ни один проект не найдено
+  connection_failed: Ошибка подключения
+  report_bug_success_message: <span>Баг был успешно отправлен!</span><span>Спасибо за внимание.</span>
+  report_bug_error_message: <span>Извините, но что-то пошло не так. :(</span><span>Пожалуйста, повторите попытку позже.</span>
+  retry: Повторить
+  turn_off_sync: Отключить синхронизацию
+  enter_your_email: Введите адрес электронной почты
+  enter_your_password: Введите ваш пароль
+  enter_your_first_name: Введите ваше имя
+  enter_your_last_name: Введите вашу фамилию
+  enter_your_company: Введите вашу компанию
+  confirm_your_password: Подтвердите ваш пароль
+  must_be_valid_link: Ссылка должна быть действительна
+  no_plugins_for_build: Если вы хотите добавить объект, пожалуйста, создайте синхронизацию с любым репозиторием git
+  select: Выбрать
+  all: Все
+  none: Ничего
+  select_cases: Выбрать тесты
+  add_test_run: Добавить тестовый прогон
+  test_run_example:
+    title: "Например: Тестовый прогон 16/08/2016, Объект 240 или Версия 3.0"
+    assigned_to: Пользователь, который будет выполнять тестирование, должны быть первоначально назначены. Электронный адрес отправляется пользователю если уведомления по электронной почте включены.
+    description: Используйте, чтобы описать цель этого тестового прогона.
+    include_all: Выберите этот параметр, чтобы включить все тестовые случаи в этом тестовом прогоне.
+    select_specific: В качестве альтернативы можно выбрать тестовые случаи, чтобы включить в этот тестовый прогон.
+  test_case_included: тест включен
+  required_fields: поля обязательные для заполнения
+  cant_be_blank: Не может быть пустым
+  go_to: Перейти к

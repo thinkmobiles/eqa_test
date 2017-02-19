@@ -1,0 +1,7 @@
+<ul class="nav-tabs">
+  <li><%= link_to t('project_info'), settings_tab_path(@project, :project_info),
+                                  class: 'btn btn-gray active', remote: true %></li>
+  <li><%= link_to t('team'), settings_tab_path(@project, :team),
+                          class: 'btn btn-gray team', remote: true %></li>
+  <li><%= @project.delete_link(current_user) %></li>
+</ul>

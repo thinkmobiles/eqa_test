@@ -1,0 +1,17 @@
+/tmp
+*.log
+.ruby-gemset
+.ruby-version
+public/system/
+public/html/
+public/pdfs/
+node_modules/
+erd.pdf
+.byebug_history
+config/initializers/pry_includer.rb
+dump.rdb
+db/schema.rb
+.idea/
+public/scss/
+/.env
+/.env.*

@@ -1,0 +1,70 @@
+  <div class="modal-dialog modal-test-case-info">
+    <div class="modal-content container">
+
+      <div class="title-main">
+        <h3><%= t('show_case') %></h3>
+        <span class="close"><%= image_tag('close-icon.svg', class: 'img-svg') %></span>
+      </div>
+      <form>
+        <div class="modal-content-scroll">
+          <div class="modal-body">
+
+            <div class="row">
+              <div class="case-title col xs-10 disabled-select">
+                <label for="caseTitle1" class="title"><%= t('title') %> <sup>*</sup></label>
+                <%= text_field_tag('caseTitle1', @test_case.title) %>
+              </div>
+
+              <div class="col col xs-2">
+                <%= link_to(edit_test_case_path(@test_case), remote: true, class: 'edit') do %>
+                  <%= image_tag('edit-icon.svg', class: 'img-svg', alt: 'edit') %>
+                <% end %>
+
+                <%= link_to(@test_case, method: :delete,
+                            remote: true, class: 'edit',
+                            'data-confirm' => t('test_case_delete_confirmation')) do %>
+                  <%= image_tag('delete-icon.svg', class: 'img-svg', alt: 'delete') %>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="case-selection clearfix disabled-select">
+
+              <div class="input_wrapper drop-arr case-selection-item">
+                <label for="section1" class="title"><%= t('module') %><sup>*</sup></label>
+                <select name="section" id="section1">
+                  <option selected="selected"><%= @test_module.title %></option>
+                </select>
+              </div>
+
+              <div class="input_wrapper drop-arr case-selection-item">
+                <label for="type1" class="title"><%= t('type') %><sup>*</sup></label>
+                <select name="type" id="type1">
+                  <option selected="selected"><%= @test_case.case_type.capitalize %></option>
+                </select>
+              </div>
+
+            </div>
+
+            <div class="presteps disabled-select">
+              <label for="presteps1" class="title"><%=t('presteps') %></label>
+              <textarea name="presteps" id="presteps1"><%= @test_case.pre_steps %></textarea>
+              <span class="example"><%= t('presteps_example_with_ref') %></span>
+            </div>
+
+            <div class="steps disabled-select">
+              <label for="steps1" class="title"><%=t('test_case_steps') %></label>
+              <textarea name="steps" id="steps1"><%= @test_case.steps %></textarea>
+              <span class="example"><%= t('steps_example') %></span>
+            </div>
+
+            <div class="expected_result disabled-select">
+              <label for="expected_result1" class="title"><%=t('test_case_expected_result:') %></label>
+              <textarea name="expected_result" id="expected_result1"><%= @test_case.expected_result %></textarea>
+              <span class="example"><%= t('expected_result_example')%></span>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

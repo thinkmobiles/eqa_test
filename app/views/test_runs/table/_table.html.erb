@@ -1,0 +1,37 @@
+<% @test_run.test_plans.order(:id).each do |test_plan| %>
+  <div class="cases-info-item testRun-test-item">
+    <div class="cases-info-item-inner">
+      <div class="cases-test module-item">
+        <div class="cases-test-header">
+          <span class="test-caret"></span>
+          <span class="test-name">  <%= test_plan.title %>
+            <span class="number">(<%= @group_cases[test_plan.id].count %>)</span>
+          </span>
+          <div class="test-progress"></div>
+        </div>
+        <div class="cases-test-content">
+          <div class="cases-test-content-item">
+            <table>
+              <%= render 'test_runs/table/colgroups' %>
+              <thead>
+                <tr>
+                  <th class="id">ID</th>
+                  <th class="test-title"><%= t('title') %></th>
+
+                  <%= render partial: 'test_runs/table/headers',
+                                      collection: @column_set.names,
+                                      as: :column_name %>
+              </tr>
+              </thead>
+              <tbody>
+                <%= render partial: 'test_runs/table/test_run_result_case',
+                                    collection: @group_cases[test_plan.id],
+                                    as: :test_case %>
+            </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

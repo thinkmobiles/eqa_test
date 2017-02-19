@@ -1,0 +1,80 @@
+{
+  "resources": [
+    {
+      "name": "Crashes",
+      "examples": [
+        {
+          "description": "Upload crashes",
+          "link": "crashes/upload_crashes.json",
+          "groups": "all",
+          "route": "/projects/upload_crashes",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "name": "Issues",
+      "examples": [
+        {
+          "description": "Create issue",
+          "link": "issues/create_issue.json",
+          "groups": "all",
+          "route": "/api/v1/projects/issues/create",
+          "method": "post"
+        },
+        {
+          "description": "Issue info with mobile build",
+          "link": "issues/issue_info_with_mobile_build.json",
+          "groups": "all",
+          "route": "/api/v1/projects/issue_info",
+          "method": "post"
+        },
+        {
+          "description": "Issue info with web site",
+          "link": "issues/issue_info_with_web_site.json",
+          "groups": "all",
+          "route": "/api/v1/projects/issue_info",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "name": "Test Objects",
+      "examples": [
+        {
+          "description": "Get all test object links",
+          "link": "test_objects/get_all_test_object_links.json",
+          "groups": "all",
+          "route": "/api/v1/test_objects",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "examples": [
+        {
+          "description": "Members list",
+          "link": "users/members_list.json",
+          "groups": "all",
+          "route": "/api/v1/projects/members_list",
+          "method": "get"
+        },
+        {
+          "description": "Sign in",
+          "link": "users/sign_in.json",
+          "groups": "all",
+          "route": "/api/v1/sign_in",
+          "method": "post"
+        },
+        {
+          "description": "Sign out",
+          "link": "users/sign_out.json",
+          "groups": "all",
+          "route": "/api/v1/sign_out",
+          "method": "delete"
+        }
+      ]
+    }
+  ]
+}

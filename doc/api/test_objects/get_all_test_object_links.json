@@ -1,0 +1,49 @@
+{
+  "resource": "Test Objects",
+  "http_method": "GET",
+  "route": "/api/v1/test_objects",
+  "description": "Get all test object links",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "token",
+      "description": "Uniq project token"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/api/v1/test_objects?token=KbUqzYT5yj080lCkEs1hZdkwEQIrgIfu5",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/json",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+        "token": "KbUqzYT5yj080lCkEs1hZdkwEQIrgIfu5"
+      },
+      "request_content_type": "application/json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "[\n  {\n    \"id\": 10,\n    \"link\": \"http://bogisichmarks.co\"\n  },\n  {\n    \"id\": 9,\n    \"link\": \"http://mccullough.co\"\n  },\n  {\n    \"id\": 8,\n    \"link\": \"http://shields.org\"\n  }\n]",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"c827df9e36b374185a629d36a08a200f\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "ad937157-d676-4128-acb8-77ef564d274d",
+        "X-Runtime": "0.220918",
+        "Content-Length": "120"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/api/v1/test_objects?token=KbUqzYT5yj080lCkEs1hZdkwEQIrgIfu5\" -X GET \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

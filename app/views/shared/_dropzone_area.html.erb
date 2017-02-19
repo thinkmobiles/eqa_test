@@ -1,0 +1,30 @@
+<div class="dropzone">
+  <div class="card-image-load">
+    <% if object.logo && object.logo.file.exists? %>
+      <div class="dz-preview dz-image-preview" id="<%= object.class.to_s.downcase.concat('_logo')%>">
+        <div class="dz-image">
+          <%= image_tag(object.logo.file.url(:medium),
+                        class: 'img-svg',
+                        data: { "dz-thumbnail": true }) %>
+        </div>
+      </div>
+    <% end %>
+    <%= image_tag('load-cloud.svg', class: 'img-svg') %>
+    <span class="btn load-btn"><%= t 'click_to_load' %></span>
+    <span class="load-description"><%= t 'or_drag_your_image_here' %></span>
+    <div class="dropzone-previews" id="preview-template"></div>
+  </div>
+  <div class="dz-error-message">
+    <span class="data-dz-errormessage">You cant upload file more than 2 Megabytes.</span>
+  </div>
+  <div class="card-image-btns">
+    <a href="javascript:;" class="btn-reload btn-white-green" id='reload'>
+      <%= image_tag('reload-icon.svg', class: 'ic-svg reload img-svg load-btn') %>
+      <%= t 'reload' %>
+    </a>
+    <a href="javascript:;" class='btn-delete btn-white-red'>
+      <%= image_tag('delete-icon.svg', class: 'ic-svg delete img-svg') %>
+      <%= t 'delete' %>
+    </a>
+  </div>
+</div>

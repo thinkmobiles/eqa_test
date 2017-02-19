@@ -1,0 +1,55 @@
+<div class="modal-dialog import-case">
+  <div class="modal-content container">
+    <div class="title-main">
+      <div id='info_notice'></div>
+      <h3><%= t('import') %> <%= @object_name.humanize.capitalize %></h3>
+      <span class="close">
+        <%= image_tag('close-icon.svg', class: 'img-svg') %>
+      </span>
+    </div>
+    <%= form_tag(map_fields_path, method: :post,
+                 id: 'upload_csv_file', remote: true) do %>
+      <div class="modal-content-scroll">
+        <div class="modal-body">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <%= hidden_field_tag :object, @object_name %>
+        <% if defined?(@test_plans) %>
+          <div class="row">
+            <div class="col xs-12">
+              <div class="input_wrapper drop-arr">
+                <label for="test-plan" class="title star">
+                  <%= t('test_plan') %>
+                </label>
+                <%= select_tag :test_plan_id,
+                               options_for_select(@test_plans),
+                               include_blank: t('choose_test_plan'),
+                               id: 'test_plan_id_csv' %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <div class="row">
+          <div class="col xs-12">
+            <h3 class="title star"><%= t('upload_csv_file') %></h3>
+            <div class="dropzone dz-message">
+              <span class="btn btn-white-green pre_upload">
+                <%= t('click_to_load') %>
+                <span><%= t('or_drag_your_image_here') %></span>
+              </span>
+            </div>
+            <div id="loadPreview" class="preview"></div>
+          </div>
+        </div>
+        </div>
+      </div>
+    <% end -%>
+    <div class="btn-group">
+      <button class="btn btn-grey btn-big open_popup" id="start-import">
+        <%= t('next') %>
+      </button>
+      <button type="button" class="btn btn-white-green btn-big cancel">
+        <%= t('cancel') %>
+      </button>
+    </div>
+  </div>
+</div>

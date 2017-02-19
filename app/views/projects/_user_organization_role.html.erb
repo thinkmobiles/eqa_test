@@ -1,0 +1,9 @@
+<div class="title-block">
+  <%= image_tag org.logo.file.url(:thumb), class: 'card-org-logo' %>
+  <h2>
+    <%= link_to org.title, organization_profile_path(org.id), class: "card-title" %>
+  </h2>
+  <p class="project-owner">
+    You are <%= current_user.organization_role(org.id).role %>
+  </p>
+</div>

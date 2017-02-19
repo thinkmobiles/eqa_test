@@ -1,0 +1,32 @@
+var test_case = $('#case_<%= @test_case.id %>.test_case_item');
+var new_module_table = $('.cases-info-item-inner[data-id=<%= @test_module.id %>]').children('.cases-test');
+var old_module_table = test_case.parents('.cases-test-content')
+                                .parent('.cases-test');
+test_case.html('<%= j render @test_case, test_plan: @test_plan %>');
+new_module_table.children('.cases-test-content')
+                .find('tbody')
+                .append(test_case);
+
+if(new_module_table != old_module_table) {
+  new_module_table.parents('.cases-test')
+                  .add(new_module_table)
+                  .children('.cases-test-header')
+                  .find('.number')
+                  .each(function(i, val) {
+    var number_text = $(val).text();
+    var number = parseInt(number_text.substring(1, number_text.length-1)) + 1
+    $(val).text('(' + number + ')')
+  });
+  old_module_table.parents('.cases-test')
+                  .add(old_module_table)
+                  .children('.cases-test-header')
+                  .find('.number')
+                  .each(function(i, val) {
+    var number_text = $(val).text();
+    var number = parseInt(number_text.substring(1, number_text.length-1)) - 1
+    $(val).text('(' + number + ')')
+  });
+};
+hide_modal();
+sortable_case_init();
+

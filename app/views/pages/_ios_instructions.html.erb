@@ -1,0 +1,37 @@
+<ol class="instruction">
+  <li><p class="main-step">Open your project in XCode;</p></li>
+  <li><p class="main-step">Go to EasyQA website <span>></span> open your project <span>></span> SDK Intergations menu item <span>></span> Download library for IOS projects:</p>
+    <div class="sdk-platforms">
+      <%= link_to download_ios_path, method: :post, class: 'btn btn-green sdk-platform' do %>
+        <%= image_tag('apple-icon.png', class: 'img-png') %>
+        <span><%= t 'ios_sdk' %></span>
+      <% end %>
+    </div>
+  </li>
+  <li>
+    <p class="main-step">Extract downloaded .zip file and Add this library to your project by drag and dropping it to project folder in XCode:</p>
+    <%= image_tag('ios-instruction-1.png', class: 'instruction-img') %>
+    <p class="sub-step"><span>– </span>Choose shown on picture radio buttons and click on “Finish” button;</p>
+    <p class="sub-step"><span>– </span>Paste to “AppDelegate.m” file next line  #import;</p>
+  </li>
+  <li>
+    <p>Go to EasyQA website <span>></span> open you project <span>></span> SDK Intergations menu item <span>></span> copy token</p>
+    <h2 class="card-sdk-integrations-title">SDK Integrations</h2>
+    <span class="token-title">Token</span>
+    <div class="token-block">
+      <div class="token">
+      <span><%= @project.token %></span>
+      <div class="copy-token">
+        <a class="btn-white-green"><%= t 'copy_token' %></a>
+      </div>
+    </div>
+    </div>
+  </li>
+  <li>
+    <p>Open “AppDelegate.m” file and paste to didFinishLaunchingWithOptions method next line</p>
+    <p>“[EasyQAIntegration setupWithWriteKey:@"your token"];”</p>
+  </li>
+  <li>
+    <p>Generate test build and upload it on <%= link_to(project_path(@project) + '/test_objects'){'Test Objects page'} %> on EasyQA website <span>></span> your build is ready.</p>
+  </li>
+</ol>

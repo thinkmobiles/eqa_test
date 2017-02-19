@@ -1,0 +1,25 @@
+<div class="modal-dialog upload-build">
+  <div class="modal-content container">
+    <div class="title-main">
+      <h3><%= t('import_progress') %></h3>
+      <span class="close">
+        <img src="/images/close-icon.svg" alt="close" class="img-svg">
+      </span>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col xs-12">
+          <span class="file-name"><%= t('imported_from') %> <span><%= session[:csv_file] %> </span><%= t('to') %> <span>Easy QA</span></span>
+          <div id="importProgressbar"></div>
+          <span class="status"><span><%= t('status') %>:</span><%= t('completed') %></span>
+          <span class="received"><span><%= t('received') %>:</span> 100%</span>
+            <div class="btn-group">
+              <span class='btn btn-green btn-big finish_import_button'>
+                <%= t('go_to') + @object_name.humanize.pluralize %>
+              </span>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

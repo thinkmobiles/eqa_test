@@ -1,0 +1,15 @@
+<% if policy(test_module.project).tester_or_higher_rank? %>
+  <div class="add-task">
+    <%= link_to t('add_case'),
+                new_test_plan_test_case_path(test_plan_id: test_module.test_plan_id,
+                              test_module: test_module.id),
+                class: 'case',
+                remote: true %>
+    <%= link_to t('add_submodule'),
+                new_test_module_path(test_plan_id: test_module.test_plan_id,
+                                     project_id: params[:project_id],
+                                     parent_id: test_module.id),
+                class: 'submodule',
+                remote: true %>
+  </div>
+<% end %>

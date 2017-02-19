@@ -1,0 +1,14 @@
+<div class="card card-tabs">
+  <ul class="card-tabs-list">
+    <% @left_menu_links.each do |link, value| %>
+      <li class="card-tabs-list-item">
+        <%=  link_to organization_profile_path(@organization, link),
+                    remote: true,
+                    class: "item-content link_profile_menu #{active_link?(@params_page, link)}" do%>
+          <%= organization_menu_image(link) %>
+          <span><%= value %></span>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

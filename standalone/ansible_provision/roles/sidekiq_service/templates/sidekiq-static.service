@@ -1,0 +1,13 @@
+# This file actually fires up multiple sidekiq services.
+# to start:  systemctl start sidekiq.target
+#
+[Unit]
+Description=Fire up up to 6 sidekiqs
+# If you want more than 6 processes, append sidekiq@7.service, sidekiq@8.service, etc. to the ExecStart line below
+# Note that only as many as have been enabled will actually start.
+# Note also that the Unit data for each sidekiq process is in /lib/systemd/system/sidekiq@.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/systemctl --no-block start sidekiq@1.service sidekiq@2.service sidekiq@3.service sidekiq@4.service sidekiq@5.service sidekiq@6.service
+RemainAfterExit=true

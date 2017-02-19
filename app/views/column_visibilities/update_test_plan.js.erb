@@ -1,0 +1,18 @@
+selector = $('.test_cases_colgroup')
+selector.html("<%= j render partial: 'test_cases/table_colgroup',
+                            locals: { names_columns: @column_names } %>")
+<% @current_plan.test_modules.each do |test_module| %>
+  selector = $('thead#module_<%= test_module.id %>')
+  selector.html("<%= j render partial: 'test_cases/table_header',
+                              locals: { test_plan: @current_plan,
+                                        test_module: test_module,
+                                        names_columns: @column_names } %>")
+  <% test_module.test_cases.sort_by_updated_at.each do |test_case| %>
+    selector = $('tr#case_<%= test_case.id %>')
+    selector.html("<%= j render test_case, test_plan: @current_plan %>")
+  <% end %>
+<% end %>
+hide_modal();
+init_carets();
+bind_custom_scrollbar();
+sortable_case_init();

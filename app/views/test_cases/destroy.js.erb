@@ -1,0 +1,7 @@
+$('.cases_count').html(parseInt($('.cases_count').html())-1);
+var selector = $('.cases-info-item-inner[data-id=<%= @test_module.id %>]');
+selector.find('tr#case_<%= @test_case.id %>').remove();
+number_element = selector.find('.number')
+number_element.text('(' + selector.find('.test_case_item').length + ')')
+hide_modal();
+$('.mCustomScrollbar').mCustomScrollbar('update');

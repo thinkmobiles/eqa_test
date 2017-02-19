@@ -1,0 +1,10 @@
+<div id="jstree_demo_div" class="horizontalScroll">
+  <ul>
+    <% unless @current_plan.nil? %>
+      <% @current_plan.test_modules.includes(:children).roots.each do |test_module| %>
+        <%= render partial: 'test_plans/jstree_item',
+             locals: { test_module: test_module } %>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

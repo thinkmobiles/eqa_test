@@ -1,0 +1,44 @@
+<div class="<%= class_for_root_module(test_module) %>">
+  <div class="cases-info-item-inner" data-id="<%= test_module.id %>">
+    <div class="cases-test module-item <%= class_for_sub_module(test_module) %>">
+      <div class="cases-test-header">
+        <%= render partial: 'test_modules/module_header',
+                   locals: { test_module: test_module } %>
+      </div>
+      <div class="cases-test-content">
+        <div class="cases-test-content-item">
+          <table class='caseSortable'>
+            <% names_columns = test_plan.column_set(current_user).names %>
+            <colgroup class="test_cases_colgroup">
+              <%= render partial: 'test_cases/table_colgroup',
+                         locals: { names_columns: names_columns }  %>
+            </colgroup>
+            <thead id="module_<%= test_module.id %>">
+              <%= render partial: 'test_cases/table_header',
+                         locals: { test_plan: test_plan,
+                                   test_module: test_module,
+                                   names_columns: names_columns }  %>
+           </thead>
+            <tbody>
+              <tr></tr>
+                <% test_module.test_cases.sort_by(&:id_in_project).each do |test_case| %>
+                  <tr class='test_case_item cases-clikable' id="case_<%= test_case.id %>">
+                    <%= render partial: 'test_cases/test_case',
+                             locals: { test_case: test_case,
+                                       test_plan: test_plan } %>
+                  </tr>
+                <% end %>
+            </tbody>
+          </table>
+        </div>
+        <%= render partial: 'test_modules/test_module_footer',
+                   locals: { test_module: test_module } %>
+      </div>
+      <% test_module.children.each do |test_module| %>
+        <%= render partial: 'test_modules/test_module',
+                   locals: { test_plan: test_plan,
+                             test_module: test_module }  %>
+      <% end%>
+    </div>
+  </div>
+</div>

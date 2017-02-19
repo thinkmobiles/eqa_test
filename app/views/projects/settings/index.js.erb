@@ -1,0 +1,6 @@
+browser_path = "<%= project_settings_path %>"
+$('.main-content').html("<%= j render file: 'projects/settings/index.html.erb' %>");
+window.history.pushState('dashboard', '', browser_path);
+highlight_project_left_menu_item(browser_path);
+notifications_init();
+test_activity_js_actions();

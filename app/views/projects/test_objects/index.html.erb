@@ -1,0 +1,36 @@
+<div class="card card-builds">
+  <div class="card-builds-header">
+    <h2 class="card-builds-title"><%= t 'test_objects' %></h2>
+    <%= link_add_test_object(@project) %>
+    <%= link_get_test_object(@project) %>
+  </div>
+  <table class="builds-table">
+    <colgroup>
+    <col width="5%">
+    <col width="14%">
+    <col width="9%">
+    <col width="9%">
+    <col width="15%">
+    <col width="18%">
+    <col width="13%">
+    <col width="14%">
+    <col width="3%">
+    </colgroup>
+    <thead class="builds-table-title">
+      <tr>
+        <th></th>
+        <th><%= t 'test_objects' %></th>
+        <th><%= t 'issues' %></th>
+        <th><%= t 'crashes' %></th>
+        <th><%= t 'platform' %></th>
+        <th><%= t 'member_name' %></th>
+        <th><%= t 'added' %></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @project.test_objects %>
+    </tbody>
+  </table>
+</div>

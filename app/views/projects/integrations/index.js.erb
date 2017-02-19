@@ -1,0 +1,6 @@
+browser_path = "<%= project_integrations_path %>"
+$('.main-content').html("<%= j render file: 'projects/integrations/index.html.erb' %>");
+window.history.pushState('dashboard', '', browser_path);
+highlight_project_left_menu_item(browser_path);
+init_nav_tabs();
+integrations_init();

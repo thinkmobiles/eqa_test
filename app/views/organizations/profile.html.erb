@@ -1,0 +1,20 @@
+<div class="content-wrapper">
+  <div class="container-full">
+    <div class="row">
+      <div class="main-content col m-12">
+        <%= render 'profile_header' %>
+        <div class="container-full">
+          <div class="row">
+            <div class="col m-3" id='organizations-left-menu'>
+              <% @left_menu_links = @organization.left_menu(current_user) %>
+              <%= render 'left_menu' %>
+            </div>
+            <div class="col m-9" id='dashboard'>
+              <%= render @organization.active_page(@params_page, @left_menu_links) %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+<div class="modal-dialog modal-test-run-steps">
+  <div class="modal-content container">
+    <div class="title-main">
+      <h3><%= t 'execute_test_case' %></h3>
+        <%= link_to test_run_profile_data_path(@test_run.project_id, @test_run.id),
+                    remote: true, class: 'test_run_profile_button close' do %>
+          <%= image_tag "close-icon.svg", alt: "close", class: "img-svg" %>
+        <% end %>
+    </div>
+    <form action="">
+      <div class="row">
+        <div class="modal-content-scroll">
+          <div class="modal-body">
+            <div class="col xs-10">
+              <table class="test-run-info-table">
+                <tr>
+                  <td>Title:</td>
+                  <td class="mark-case-title">
+                    <%= @case.title %>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Presteps:</td>
+                  <td class="mark-case-presteps">
+                    <%= simple_format(@case.pre_steps) %>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Steps:</td>
+                  <td class="mark-case-steps">
+                    <%= simple_format(@case.steps) %>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Expected result:</td>
+                  <td class="mark-case-expected-result">
+                    <%= simple_format(@case.expected_result) %>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="col xs-2 radio-status-result">
+              <div class="pass">
+                <input type="radio" name="test-run" value="pass" id="radio4"
+                       class="radio" data-project-id="<%= @test_run.project_id %>"
+                       data-result-id="<%= @result.id %>"
+                       <%= 'checked' if @result.status.eql?('pass') %> >
+                <label for="radio4" class="title">Pass</label>
+              </div>
+              <div class="failed">
+                <input type="radio" name="test-run" value="fail" id="radio5"
+                       class="radio"
+                       data-project-id="<%= @test_run.project_id %>"
+                       data-result-id="<%= @result.id %>"
+                       <%= 'checked' if @result.status.eql?('fail') %> >
+                <label for="radio5" class="title">Failed</label>
+              </div>
+              <div class="blocked">
+                <input type="radio" name="test-run" value="block" id="radio6"
+                       class="radio"
+                       data-result-id="<%= @result.id %>"
+                       data-project-id="<%= @test_run.project_id %>"
+                       <%= 'checked' if @result.status.eql?('block') %> >
+                <label for="radio6" class="title">Blocked</label>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="btn-group test-run-step-controls">
+        <%= prev_button(@prev_path) if prev_case %>
+        <% if next_case %>
+          <%= next_button(@next_path)%>
+        <% else %>
+          <%= finish_button(test_run_profile_data_path(@test_run.project_id,
+                                                  @test_run.id))%>
+        <% end %>
+      </div>
+    </form>
+  </div>
+</div>

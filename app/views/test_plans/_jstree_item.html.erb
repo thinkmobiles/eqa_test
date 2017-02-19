@@ -1,0 +1,13 @@
+<li>
+  <span>
+    <a href="javascript:;" class="folder-title" data-id="<%= test_module.id %>">
+      <%= test_module.title %>
+    </a>
+  </span>
+  <ul>
+    <% test_module.children.each do |test_module| %>
+      <%= render partial: 'test_plans/jstree_item',
+           locals: { test_module: test_module } %>
+    <% end %>
+  </ul>
+</li>

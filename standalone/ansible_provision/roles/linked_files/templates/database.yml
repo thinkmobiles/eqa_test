@@ -1,0 +1,9 @@
+
+standalone:
+  adapter: postgresql
+  encoding: unicode
+  pool: 20
+  username: {{ app_name }}
+  database: {{ app_name }}_production
+  port: 5432
+  host: localhost

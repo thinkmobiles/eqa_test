@@ -1,0 +1,34 @@
+<div class="comment-block" data-comment-id="<%= comment.id %>" >
+  <div class="comment-header">
+    <%= image_tag comment.user.avatar.file.url(:medium), class: 'avatar' %>
+    <span class="comment-author"><%= comment.user.name %></span>
+    <span class="comment-date"><%= comment.created_at.strftime("%d.%m.%Y") %></span>
+    <span class="comment-time"><%= comment.created_at.strftime("%H:%M") %></span>
+    <div class="edit-buttons">
+      <% if policy(comment).update? && !comment.deleted? && !comment.is_history %>
+        <a href='javascript:;' class="edit destroy_comment_btn">
+          <%= image_tag 'delete-icon-small.svg', class: 'img-svg' %>
+        </a>
+        <a href='javascript:;' class="edit edit_comment_btn">
+          <%= image_tag 'edit-icon-small.svg', class: 'img-svg' %>
+        </a>
+      <% end %>
+    </div>
+  </div>
+  <div class="comment-text">
+    <% if comment.is_history %>
+       <ul class="comment-history">
+        <%= parse_comment_body(comment.body) %>
+      </ul>
+    <% else %>
+      <p class="displayText"><%= comment.deleted? ? 'This message was deleted' : comment.body %></p>
+      <% comment.history.each do |version| %>
+        <span class="comment-history">
+          <%= version.event %> by
+          <%= find_user_from_version(version) %>
+          <%= version.created_at.strftime("%d.%m.%Y at %H:%M") %><br>
+        </span>
+      <% end %>
+    <% end %>
+  </div>
+</div>

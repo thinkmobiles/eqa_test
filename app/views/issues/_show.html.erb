@@ -1,0 +1,29 @@
+<div class="modal-dialog issue-info issue-comments">
+  <div class="modal-content container">
+    <div class="modal-tabs">
+      <ul class="modal-tabs-list">
+        <li>
+          <a href="#issueInfo" class="tab-active">#<%= @issue.project_issue_number %></a>
+        </li>
+        <li>
+          <a href="#spentTime"><%= t 'time_spent' %>
+            <span class="spent-time-count"><%= @issue.spent_time_view %></span>
+          </a>
+        </li>
+        <li>
+          <a href="#comments"><%= t 'comments' %>
+            <span class="comments-count"><%= @issue.comments.count %></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <span class="close">
+      <%= image_tag('close-icon.svg', class: 'img-svg') %>
+    </span>
+    <div class="modal-body">
+      <%= render 'issue_tab' %>
+      <%= render 'comment_tab' %>
+      <%= render 'issues/time_managements/index' %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+if($(MODAL_CLASS).find('div.double-modal').length > 0) {
+  replace_modal_to_execute_test_run();
+} else {
+  <% if request.referrer =~ /crashes/ %>
+    $('.log-file-btn-<%= @issue.log_file_id %>').children()
+                                                .replaceWith("<%= j crash_action_button(@project, @issue.log_file) %>");
+  <% else %>
+    $(".agile_content[data-status-name='Submited']").prepend("<%= j render 'issue', issue: @issue %>");
+    issues_count = $(".agile_content[data-status-name='Submited']")
+                    .siblings('.agile_title')
+                    .find('.count')
+    issues_count.text(parseInt(issues_count.text()) + 1);
+  <% end %>
+  hide_modal();
+}

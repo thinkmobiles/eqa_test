@@ -1,0 +1,17 @@
+var parent = "<%= @test_module.parent_id %>"
+test_module = $("<%= j render @test_module, test_plan: @current_plan %>")
+if (parent == "") {
+  $('.cases-info > div > div').first().append(test_module);
+} else {
+  selector = $('.cases-info-item-inner[data-id=<%= @test_module.parent_id %>] > .cases-test' )
+  selector.append(test_module)
+}
+$('.contains.contains-info').html('<%= j render partial: "test_plans/jstree" %>');
+$('.modules_count').html( $('.cases-test-header').length);
+// console.log('################ from /app/views/test_modules/create.js.erb');
+hide_modal();
+jstree_init();
+init_carets();
+bind_custom_scrollbar();
+sortable_case_init();
+$('.mCustomScrollbar').mCustomScrollbar('update');

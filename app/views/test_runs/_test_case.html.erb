@@ -1,0 +1,16 @@
+<tr class='test_case_item'>
+  <td class="checkbox">
+    <%= check_box_tag 'case', test_case.id, false, class: "checkbox module_checkbox", id: "test-case-#{test_case.id}", data: { module_id: module_id } %>
+    <label for="test-case-<%= test_case.id %>" class="checkbox-label"></label>
+  </td>
+  <td class="id"><%= test_case.id %></td> <!--id-->
+  <td class="test-title"><%= test_case.title %></td>
+    <!--title-->
+
+  <td class="createdBy"><%= test_case.owner.try(:name) %></td>
+  <td class="createdOn"><%= test_case.created_at.strftime('%Y-%m-%d') %></td>
+  <td class="updatedBy"><%= test_case.editor.try(:name) %></td>
+  <td class="updatedOn"><%= test_case.updated_at.strftime('%Y-%m-%d') %></td>
+  <td class="module"><%= test_case.test_module.title %></td>
+  <td class="type"><%= test_case.case_type %></td>
+</tr>

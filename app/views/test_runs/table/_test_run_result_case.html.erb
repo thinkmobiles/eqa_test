@@ -1,0 +1,16 @@
+<% result = @group_results[test_case.id].first %>
+<tr data-test-run-id="<%=@test_run.id%>" data-test-case-id="<%=test_case.id%>" data-test-result-id="<%=result.id%>">
+  <td class="id"><%= test_case.id_in_project %> </td>
+  <td class="test-title"><%= test_case.title %></td>
+  <% @column_set.names.each do |column_name| %>
+    <td class="<%= (generate_class_from_name(column_name)) %>">
+      <% if column_name == 'status' %>
+        <div class="status-block <%= result.status %>">
+          <%= test_run_result_label(result) %>
+        </div>
+      <% else %>
+        <%= result.get_column_value(column_name, test_case) %>
+      <% end %>
+    </td>
+  <% end %>
+</tr>

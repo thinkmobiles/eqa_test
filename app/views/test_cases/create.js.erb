@@ -1,0 +1,18 @@
+var test_case = $('<tr class="test_case_item cases-clikable" id="case_<%= @test_case.id %>"><%= j render @test_case, test_plan: @test_plan %></tr>');
+var module_table = $('.cases-info-item-inner[data-id=<%= @test_module.id %>]').children('.cases-test');
+module_table.children('.cases-test-content')
+            .find('tbody')
+            .append(test_case);
+
+module_table.parents('.cases-test')
+            .add(module_table)
+            .children('.cases-test-header')
+            .find('.number')
+            .each(function(i, val) {
+  var number_text = $(val).text();
+  var number = parseInt(number_text.substring(1, number_text.length-1)) + 1
+  $(val).text('(' + number + ')')
+});
+$('.cases_count').text( $('.test_case_item').length);
+sortable_case_init();
+$('.mCustomScrollbar').mCustomScrollbar('update');

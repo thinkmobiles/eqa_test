@@ -1,0 +1,9 @@
+comments = $('#comments .mCSB_container')
+$('#new_comment #comment_body').val('');
+scroll = comments.parents(".mCustomScrollbar");
+comments.append("<%= j render @comment %>");
+
+new_comment = $('.comment-block').last()
+scroll.mCustomScrollbar('scrollTo', new_comment);
+update_comments_count('<%= @comment.commentable.comments.count %>');
+img_to_svg_convert();

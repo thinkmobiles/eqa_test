@@ -1,0 +1,79 @@
+<!-- Modal content -->
+<div class="modal-dialog modal-add-test-run" data-test-run-id='<%= @test_run.id %>'>
+  <%= form_for(@test_run, url: url,
+               html: { method: url_method },
+               remote: true,
+               validate: true) do |f| %>
+    <div class="modal-content">
+      <div class="title-main">
+        <h3><%= t('add_test_run') %></h3>
+        <span class="close">
+          <%= image_tag('close-icon.svg', class: 'img-svg') %>
+        </span>
+      </div>
+      <div class='modal-content-scroll'>
+        <div class="modal-body">
+          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+          <%= f.hidden_field :project_id, value: @project.id %>
+          <div class="name">
+            <%= f.label :title, class: 'title' %>
+            <%= f.text_field :title, autofocus: true, validate: true %>
+            <span class="example"><%= t 'test_run_example.title' %></span>
+          </div>
+          <div class="test-plan">
+            <div class="input_wrapper drop-arr">
+            <%= f.label :test_plan_id, class: 'title' %>
+            <%= f.select :test_plan_id,
+                         @test_plans.map { |array| [sanitize(array[0]), array[1]]},
+                         { include_blank: 'choose assigned test plan' },
+                         id: 'testRunSelect',
+                         validate: true %>
+            </div>
+          </div>
+          <div class="assign">
+            <div class="input_wrapper drop-arr" id='user-select-data' data-default-id='<%= @test_run.assigner_id %>'>
+            <%= f.label :assigner_id %>
+            <%= f.select :assigner_id,
+                         users_select(@project.members.with_roles([Role.tester_value, Role.owner_value])),
+                         { include_blank: 'choose assigned user' },
+                         id: 'assignedTestRun', class: 'validate_select',
+                         validate: true %>
+            </div>
+            <span class="example"><%= t 'test_run_example.assigned_to' %></span>
+          </div>
+          <div class="description">
+            <%= f.label :description %>
+            <%= f.text_area :description, rows: "5" %>
+            <span class="example"><%= t 'test_run_example.description' %></span>
+          </div>
+          <div class="radio-btn-group">
+            <div class="radio-btn-group-item">
+              <%= f.radio_button :test_run_results, [{test_plan_id: @test_run.test_plan_id}].to_json, name: 'test_run[test_run_results_attributes]', checked: @test_run.new_record?, class: 'radio', id: 'include_all_test_cases' %>
+              <%= label_tag 'include_all_test_cases', nil, class: 'title' %>
+              <div class="radio-btn-group-text">
+                <p><%= t 'test_run_example.include_all' %></p>
+              </div>
+            </div>
+            <div class="radio-btn-group-item">
+              <%= f.radio_button :test_run_results, [].to_json, name: 'test_run[test_run_results_attributes]', checked: !@test_run.new_record?, class: 'radio', id: 'select_specific_test_cases' %>
+              <%= label_tag 'select_specific_test_cases', nil, class: 'title' %>
+              <div class="radio-btn-group-text">
+                <p><%= t 'test_run_example.select_specific' %></p>
+              </div>
+            </div>
+            <div class="change-selection" style='<%= change_selection_visibility %>'>
+              <span><%= @test_run.test_run_results.count %></span> <%= t 'test_case_included' %> (
+                <%= link_to 'change selection', 'javascript:;', class: 'change', data: { run_id: @test_run.id } %>
+              )
+            </div>
+          </div>
+          <div class="btn-group">
+            <%= f.submit t('save'), class: 'btn btn-green' %>
+            <span class="btn btn-white-green cancel"><%= t('cancel') %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="selectCases" class="modal-inner"></div>  <!--Modal inner close-->
+  <% end %>
+</div>

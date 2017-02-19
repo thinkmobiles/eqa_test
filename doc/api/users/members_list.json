@@ -1,0 +1,49 @@
+{
+  "resource": "Users",
+  "http_method": "GET",
+  "route": "/api/v1/projects/members_list",
+  "description": "Members list",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "token",
+      "description": "Uniq project token"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/api/v1/projects/members_list?token=N6f2ap6FJe%2B2V2QQ8FIWhnmtaFLr4mBU6",
+      "request_body": null,
+      "request_headers": {
+        "Content-Type": "application/json",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+        "token": "N6f2ap6FJe+2V2QQ8FIWhnmtaFLr4mBU6"
+      },
+      "request_content_type": "application/json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"users\": [\n    {\n      \"name\": \"Jermey Green\",\n      \"email\": \"virginie.kshlerin@crist.info\"\n    },\n    {\n      \"name\": \"Tyrese Braun\",\n      \"email\": \"ericka.wisoky@stamm.co\"\n    }\n  ]\n}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"2343dc0e2493029741effe9c197d3a3e\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "841b1319-6d6e-4330-99d1-390b6c568c31",
+        "X-Runtime": "0.776822",
+        "Content-Length": "131"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://localhost:3000/api/v1/projects/members_list?token=N6f2ap6FJe%2B2V2QQ8FIWhnmtaFLr4mBU6\" -X GET \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+<td class="drag"><%= image_tag 'drag-icon.svg', class: "img-svg", alt: 'img' %>
+</td>
+<td class="checkbox">
+  <input type="checkbox" class="checkbox" id="checkbox-case-<%= test_case.id %>"/>
+  <label for="checkbox-case-<%= test_case.id %>" class="checkbox-label"></label>
+</td>
+<td class="id" case_id="<%= test_case.id %>"><%= test_case.id_in_project %></td>
+<td class="test-title"><%= test_case.title %></td>
+<% test_plan.column_set(current_user).names.each do |name| %>
+  <td class="<%= generate_class_from_name(name) %>"><%= test_case.get_column_value(name) %></td>
+<% end %>
+<td class="select">
+  <div class="test-lead">
+    <% if policy(test_case.project).tester_or_higher_rank? %>
+      <%= link_to test_case_destroy_case_confirm_path(test_case), remote: true, class: 'delete' do %>
+        <% image_tag('basket-icon.svg', class: 'img-svg') %>
+      <% end %>
+      <%= link_to edit_test_case_path(test_case), remote: true, class: 'edit' do %>
+        <%= image_tag('edit-icon.svg', class: 'img-svg') %>
+      <% end %>
+    <% end %>
+  </div>
+</td>

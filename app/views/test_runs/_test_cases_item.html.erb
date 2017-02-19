@@ -1,0 +1,55 @@
+<% module_id = test_module.id %>
+
+<div class="cases-info-item-inner open %>" data-id="<%= module_id %>" id="test-module-<%= module_id %>">
+  <% module_class = test_module.parent_id ? 'sub' : 'main' %>
+  <div class="cases-test module-item <%= module_class %>">
+    <div class="cases-test-header">
+      <span class="test-caret caret-down %>"></span>
+      <span class="test-name"> <%= test_module.title %>
+        <span class="number">(<%= test_module.test_cases.count %>)</span>
+      </span>
+    </div>
+    <div class="cases-test-content" id="case-content-module-<%= module_id %>">
+      <div class="cases-test-content-item main-item">
+        <table id="<%= module_id %>">
+          <colgroup>
+            <!-- <col class="drag"> -->
+            <col class="checkbox">
+            <col class="id">
+            <col class="test-title">
+            <col width="100px">
+            <col width="100px">
+            <col width="100px">
+            <col width="100px">
+            <col width="100px">
+            <col width="100px">
+            <col class="select">
+          </colgroup>
+          <thead>
+            <tr>
+              <!-- <th class="drag"></th> -->
+              <th class="checkbox">
+                <%= check_box_tag 'case', module_id, false, class: "checkbox checkbox-all", id: "checkbox-module-#{module_id}",
+                  data: { module_id: module_id } %>
+
+                <label for="checkbox-module-<%= module_id %>" class="checkbox-label"></label>
+              </th>
+              <th class="id">ID</th> <!--main-id-->
+              <th class="test-title">Title</th>
+              <th class="createdBy">Created By</th>
+              <th class="createdOn">Created On</th>
+              <th class="updatedBy">Updated By</th>
+              <th class="updatedOn">Updated On</th>
+              <th class="module">Module</th>
+              <th class="type">Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render partial: 'test_case', collection: test_module.test_cases, locals: { module_id: module_id },  as: :test_case %>
+          </tbody>
+        </table>
+      </div>   <!-- cases-test-content-item main-item-->
+    </div>
+    <%= render partial: 'test_cases_item', collection: test_module.children, as: :test_module %>
+  </div>
+</div>

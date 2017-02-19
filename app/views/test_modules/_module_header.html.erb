@@ -1,0 +1,15 @@
+<span class="test-caret"></span>
+<span class="test-name">
+  <%= test_module.title %>
+  <span class="number">(<%= cases_count(test_module)%>)</span>
+</span>
+<div class="test-lead">
+<% if policy(test_module.project).tester_or_higher_rank? %>
+  <%= link_to destroy_module_confirm_path(test_module), remote: true, class: 'delete' do %>
+    <%= image_tag('basket-icon.svg', class: 'img-svg') %>
+  <% end %>
+  <%= link_to edit_test_module_path(test_module), remote: true, class: 'edit' do %>
+    <%= image_tag('edit-icon.svg', class: 'img-svg') %>
+  <% end %>
+<% end %>
+</div>

@@ -1,0 +1,8 @@
+$('#dashboard').html("<%= escape_javascript(render @browser_path ) %>");
+window.history.pushState('dashboard', '', "<%= organization_profile_path + '/' + @browser_path %>");
+
+if ("<%= @browser_path %>" == 'members'){
+  init_organization_members();
+  custom_select();
+}
+img_to_svg_convert(jQuery);

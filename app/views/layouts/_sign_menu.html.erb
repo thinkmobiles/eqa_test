@@ -1,0 +1,32 @@
+<header id='head_menu' class="main-header">
+  <div class="logo_title <%= header_class(no_project)%>">
+    <%= link_to root_path do %>
+      <%= image_tag image(no_project) %>
+      <span>Easy QA</span>
+    <% end %>
+  </div>
+  <ul class="main_tabs">
+    <%= content_tag(:li, class: ('active' if @active)) do %>
+      <%= link_to t('users.my_organizations'),
+                    user_profile_path(:my_organizations) %>
+    <% end %>
+    <%= content_tag(:li, class: ('active' if content_for(:my_projects))) do %>
+      <%= link_to t('users.my_projects'), projects_path %>
+    <% end %>
+  </ul>
+  <div class="create_block">
+    <%= link_to t('add_organization'), new_organization_path, remote: true, class: 'btn btn-green' %>
+    <%= link_to t('add_project'), new_project_path, remote: true, class: 'btn btn-green' %>
+    <%= link_to report_bug_path, remote: true, class: 'btn btn-ghost-red' do %>
+      <%= t('report.bug') %>
+      <span class="hover-block"><%= t('report.found') %></span>
+    <% end %>
+  </div>
+  <div class="profile_block">
+    <%= image_tag current_user.avatar.file.url(:medium), class: 'avatar' %>
+    <%= link_to t('users.profile'), user_profile_path, class: 'profile_name' %>
+    <%= link_to destroy_user_session_path, class: 'log_out', method: :delete do %>
+      <%= image_tag('log-out.svg', class: 'img-svg') %>
+    <% end %>
+  </div>
+</header>

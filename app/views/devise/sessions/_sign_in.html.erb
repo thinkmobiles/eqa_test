@@ -1,0 +1,29 @@
+<div class="sign-form-column">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), validate: true, html: { class: 'sign-form', remote: true }) do |f| %>
+      <h2 class="sign-title"><%= t('sign_in_via_email') %></h2>
+      <%= render 'shared/error_message' %>
+      <div class="input_wrapper">
+        <%= f.label :email %>
+        <%= f.email_field :email, validate: { uniqueness: false }, placeholder: t('enter_your_email'), autofocus: true %>
+      </div>
+
+      <div class="input_wrapper">
+        <%= f.label :password %>
+        <%= f.password_field :password, validate: true, placeholder: t('enter_your_password'), autocomplete: "off" %>
+      </div>
+
+      <% if devise_mapping.rememberable? -%>
+        <div class="sign-block">
+          <%= link_to t('devise.passwords.new.forgot_your_password'), new_password_path('user') %>
+
+          <%= f.check_box :remember_me, class: 'checkbox' %>
+          <%= f.label :remember_me, class: 'sign-in-checkbox-label' %>
+        </div>
+      <% end -%>
+
+      <%= f.submit(t('sign_in'), class: 'btn btn-green sign-submit') %>
+    <% end %>
+</div>
+<% unless Rails.env.standalone? %>
+  <%= render "devise/shared/socials" %>
+<% end %>

@@ -1,0 +1,18 @@
+<div class="container-full">
+  <div class="row">
+    <div class="main-content col m-12">
+      <%= render 'card_user_info' %>
+      <div class="container-full">
+        <div class="row">
+          <div class="col m-3" id='left-menu'>
+            <% @left_menu_links = @user.left_menu %>
+            <%= render 'left_menu' %>
+          </div>
+          <div class="col m-9" id='content'>
+            <%= render @active_page %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
